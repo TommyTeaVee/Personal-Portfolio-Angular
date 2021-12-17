@@ -7,11 +7,22 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProfileModule } from './profile/profile.module';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'landing',
+    component: LandingComponent
+   // component: ProfileComponent
+  },
+  {
+    path: 'profile',
     component: ProfileComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/landing',
+    pathMatch: 'full'
   }
 ];
 
@@ -21,7 +32,8 @@ const config: ExtraOptions = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
